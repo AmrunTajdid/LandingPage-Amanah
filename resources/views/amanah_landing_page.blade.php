@@ -1,0 +1,1135 @@
+@php
+    /*
+    |--------------------------------------------------------------------------
+    | KONFIGURASI RESMI PT AMANAH HARAMAIN INTERNATIONAL
+    |--------------------------------------------------------------------------
+    | Variabel di bawah dapat disesuaikan sewaktu-waktu sesuai kebutuhan operasional.
+    */
+    $waNumber = '62000'; // Format internasional tanpa simbol '+'
+    $companyName = 'PT Amanah Haramain International';
+    $brandName = 'AMANAH - Umroh dan Hajj Protection';
+    $tagline = 'Layanan Keuangan Perlindungan Dana Jamaah Haji & Umroh';
+    $officeAddress = 'Jl. Gelong Baru Tengah No.1, RT.6/RW.7, Tomang, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11440';
+    $officeHours = 'Senin - Jumat: 09.00 - 17.00 WIB';
+    $nibNumber = '0000';
+    $ahuNumber = 'AHU-';
+    $bankPartner = 'Bank Muamalat';
+
+    // Aset Gambar (Root-relative untuk kompatibilitas Vercel & Production)
+    $kabahImage = '/images/kabah-makkah.webp';
+    $nabawiImage = '/images/madinah-nabawi.webp';
+    $logoImage = '/images/logo-amanah.jpg';
+    $logoSvg = '/images/logo-amanah.svg';
+
+    // Pesan Default WhatsApp Cepat
+    $waHeroMessage = "Halo Tim Konsultasi Amanah,\n\nSaya tertarik mengetahui lebih lanjut mengenai program Perlindungan Dana Umroh & Haji Amanah agar rencana ibadah saya terjamin aman.\n\nMohon informasi prosedur dan persyaratannya. Terima kasih.";
+    $waUrlHero = "https://wa.me/{$waNumber}?text=" . urlencode($waHeroMessage);
+@endphp
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $brandName }} | {{ $companyName }}</title>
+    <meta name="description" content="Layanan Keuangan Terpercaya untuk Perlindungan Dana Jamaah Haji dan Umroh di Indonesia. Dana terproteksi 100% di Rekening Khusus Bank Syariah hingga kepastian berangkat.">
+    <meta name="keywords" content="perlindungan umroh, proteksi dana haji, tabungan umroh aman, travel umroh terpercaya, rekening penampung syariah, amanah haramain">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/logo-icon.png?v=2">
+    <link rel="shortcut icon" href="/favicon.ico?v=2">
+    <link rel="apple-touch-icon" href="/images/logo-icon.png?v=2">
+
+    <!-- Open Graph / Meta Ads & Google Ads Support -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $brandName }} - Ibadah Tenang, Dana Terlindungi 100%">
+    <meta property="og:description" content="Bebas risiko biro nakal. Dana ibadah Anda terproteksi di Rekening Khusus Bank Syariah resmi atas nama PT Amanah Haramain International.">
+    <meta property="og:image" content="{{ $kabahImage }}">
+
+    <!-- Google Fonts: Nunito, Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#F0F9F7',
+                            100: '#E1F3EE',
+                            200: '#C2E7DE',
+                            700: '#19635B',
+                            800: '#134E48',
+                            900: '#0D3B36',
+                            950: '#062421',
+                        },
+                        gold: {
+                            50: '#FEFBF3',
+                            100: '#FDF6E3',
+                            200: '#F9E8B8',
+                            300: '#F4D888',
+                            400: '#E5C058',
+                            500: '#D49B2A',
+                            600: '#C59B27',
+                            700: '#997316',
+                            800: '#735411',
+                            900: '#4A3408',
+                        },
+                        canvas: '#FBF9F5',
+                        slateNavy: '#0F172A',
+                        brandGreen: '#1C6758',
+                        brandGold: '#C8972E',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        brand: ['"Nunito"', '"Plus Jakarta Sans"', 'ui-sans-serif', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(13, 59, 54, 0.12)',
+                        'gold-glow': '0 0 30px rgba(197, 155, 39, 0.25)',
+                        'card-hover': '0 25px 50px -12px rgba(13, 59, 54, 0.18)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #D49B2A 0%, #F4D888 50%, #C59B27 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-emerald {
+            background: linear-gradient(135deg, #134E48 0%, #207970 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-islamic-pattern {
+            background-image: radial-gradient(#D49B2A 0.75px, transparent 0.75px), radial-gradient(#134E48 0.75px, #FBF9F5 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.05;
+        }
+        .archway-frame {
+            border-radius: 200px 200px 32px 32px;
+        }
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float-slow 4s ease-in-out infinite;
+        }
+        .animate-float-delay {
+            animation: float-slow 4s ease-in-out infinite 2s;
+        }
+    </style>
+</head>
+<body class="bg-canvas text-slateNavy font-sans antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- ========================================================================= -->
+    <!-- 1. TOP BAR & STICKY NAVBAR                                               -->
+    <!-- ========================================================================= -->
+
+    <!-- Top Notice Bar: Pilar Legitimasi Cepat -->
+    <aside class="bg-emerald-950 text-gold-200 text-xs py-2 px-4 border-b border-gold-600/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+            <div class="flex items-center flex-wrap justify-center gap-3">
+                <span class="inline-flex items-center gap-1.5 font-semibold text-white">
+                    <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Legalitas Resmi:
+                </span>
+                <span>NIB: <strong class="text-white font-mono">{{ $nibNumber }}</strong></span>
+                <span class="hidden sm:inline text-gold-600">•</span>
+                <span>SK Kemenkumham: <strong class="text-white font-mono">{{ $ahuNumber }}</strong></span>
+            </div>
+            <div class="flex items-center gap-3 text-emerald-200">
+                <span class="inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                        <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                    </svg>
+                    Rekening Khusus: <strong class="text-white font-medium">{{ $bankPartner }}</strong>
+                </span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Sticky Navbar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-emerald-900/10 shadow-sm transition-all"
+            x-data="{ mobileMenu: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo & Brand Identifier -->
+                <a href="#hero" class="flex items-center gap-3.5 group py-1">
+                    <img src="/images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-12 w-auto object-contain group-hover:scale-105 transition-transform">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-2xl sm:text-[28px] font-brand font-black tracking-wide text-[#1C6758] leading-none">
+                            AMANAH
+                        </span>
+                        <span class="text-xs sm:text-[13px] font-brand font-bold text-[#C8972E] mt-1 leading-tight tracking-tight">
+                            Umroh dan Hajj Protection
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+                    <a href="#keunggulan" class="hover:text-emerald-800 transition-colors">Keunggulan</a>
+                    <a href="#cara-kerja" class="hover:text-emerald-800 transition-colors">Cara Kerja</a>
+                    <a href="#legalitas" class="hover:text-emerald-800 transition-colors">Legalitas & Bukti</a>
+                    <a href="#faq" class="hover:text-emerald-800 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Action CTA Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="{{ $waUrlHero }}" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-200 border border-gold-500/40 hover:scale-[1.02]">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        <svg class="w-4 h-4 text-emerald-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.761.879 2.796.88h.005c3.179 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.767-5.772-5.767zm7.653 5.766c-.002 4.223-3.435 7.656-7.653 7.656-1.309 0-2.587-.341-3.712-.988l-4.108 1.077 1.096-4.004c-.718-1.182-1.097-2.535-1.096-3.741.002-4.223 3.436-7.656 7.655-7.656 4.22 0 7.652 3.433 7.654 7.656z"/>
+                        </svg>
+                        <span>Konsultasi WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex sm:hidden items-center">
+                    <button @click="mobileMenu = !mobileMenu" type="button" class="p-2 rounded-lg text-emerald-950 hover:bg-emerald-50 focus:outline-none" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path x-show="!mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path x-show="mobileMenu" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Dropdown Navigation -->
+            <div x-show="mobileMenu" x-cloak @click.away="mobileMenu = false"
+                 class="sm:hidden py-4 border-t border-slate-200 space-y-3">
+                <a href="#keunggulan" @click="mobileMenu = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-emerald-800">Keunggulan</a>
+                <a href="#cara-kerja" @click="mobileMenu = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-emerald-800">Cara Kerja</a>
+                <a href="#legalitas" @click="mobileMenu = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-emerald-800">Legalitas & Bukti</a>
+                <a href="#faq" @click="mobileMenu = false" class="block py-2 text-sm font-medium text-slate-700 hover:text-emerald-800">FAQ</a>
+                <div class="pt-2">
+                    <a href="{{ $waUrlHero }}" target="_blank" rel="noopener noreferrer"
+                       class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-800 text-white font-semibold text-sm shadow-md">
+                        <svg class="w-4 h-4 text-emerald-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.761.879 2.796.88h.005c3.179 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.767-5.772-5.767zm7.653 5.766c-.002 4.223-3.435 7.656-7.653 7.656-1.309 0-2.587-.341-3.712-.988l-4.108 1.077 1.096-4.004c-.718-1.182-1.097-2.535-1.096-3.741.002-4.223 3.436-7.656 7.655-7.656 4.22 0 7.652 3.433 7.654 7.656z"/>
+                        </svg>
+                        <span>Hubungi WhatsApp Resmi</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ========================================================================= -->
+    <!-- 2. HERO SECTION: SPLIT LUXURY LAYOUT                                     -->
+    <!-- ========================================================================= -->
+    <section id="hero" class="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 border-b border-emerald-900/10">
+        <!-- Subtle Background Glows & Arabesque -->
+        <div class="absolute inset-0 bg-islamic-pattern pointer-events-none"></div>
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-gold-300/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald-700/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+                <!-- Left Column: Headline, Value Pillars & Lead Capture Card -->
+                <div class="lg:col-span-7 flex flex-col justify-center">
+
+                    <!-- Pill Tag -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-700/30 text-emerald-900 text-xs sm:text-sm font-semibold mb-6 w-fit shadow-xs">
+                        <span class="text-gold-600">🛡️</span>
+                        <span>Layanan Proteksi Finansial Haji & Umroh Terpercaya</span>
+                    </div>
+
+                    <!-- Grand Headline -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-serif font-black text-emerald-950 leading-[1.15] mb-5">
+                        Niat Suci ke Baitullah Lebih Tenang, <br class="hidden sm:inline">
+                        <span class="text-gradient-emerald">Dana Terlindungi 100%</span>
+                        <span class="text-gradient-gold">Amanah.</span>
+                    </h1>
+
+                    <!-- Emotional Sub-headline -->
+                    <p class="text-base sm:text-lg text-slate-700 mb-8 leading-relaxed max-w-2xl font-normal">
+                        Bebas dari rasa was-was biro travel bermasalah atau gagal berangkat. Bersama <strong class="text-emerald-950 font-semibold">{{ $brandName }}</strong>, dana ibadah Anda ditempatkan di <strong>Rekening Khusus Terproteksi Bank Syariah</strong> hingga kepastian tiket, visa, dan jadwal resmi terbit.
+                    </p>
+
+                    <!-- 4 Value Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+                        <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-emerald-900/10 shadow-xs">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-800 text-gold-300 flex items-center justify-center font-bold text-xs shrink-0">✓</div>
+                            <div class="flex flex-col">
+                                <span class="text-xs font-bold text-emerald-950">Aman</span>
+                                <span class="text-[10px] text-slate-500">Rekening Khusus</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-emerald-900/10 shadow-xs">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-800 text-gold-300 flex items-center justify-center font-bold text-xs shrink-0">⚖️</div>
+                            <div class="flex flex-col">
+                                <span class="text-xs font-bold text-emerald-950">Terpercaya</span>
+                                <span class="text-[10px] text-slate-500">NIB & Kemenkumham</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-emerald-900/10 shadow-xs">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-800 text-gold-300 flex items-center justify-center font-bold text-xs shrink-0">⚡</div>
+                            <div class="flex flex-col">
+                                <span class="text-xs font-bold text-emerald-950">Mudah</span>
+                                <span class="text-[10px] text-slate-500">Konsultasi Cepat</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-emerald-900/10 shadow-xs">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-800 text-gold-300 flex items-center justify-center font-bold text-xs shrink-0">🕌</div>
+                            <div class="flex flex-col">
+                                <span class="text-xs font-bold text-emerald-950">Berkah</span>
+                                <span class="text-[10px] text-slate-500">Prinsip Syariah</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Quick Lead Capture Form (Auto-Redirect WhatsApp) -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-luxury border-2 border-emerald-900/15 relative overflow-hidden"
+                         x-data="{
+                             nama: '',
+                             whatsapp: '',
+                             kota: '',
+                             paket: 'Konsultasi Umum Proteksi Dana',
+                             waTarget: '{{ $waNumber }}',
+                             isSubmitting: false,
+                             submitForm() {
+                                 if (!this.nama.trim() || !this.whatsapp.trim()) {
+                                     alert('Mohon isi Nama Lengkap dan Nomor WhatsApp Anda untuk memulai konsultasi.');
+                                     return;
+                                 }
+                                 this.isSubmitting = true;
+                                 let cleanWa = this.whatsapp.replace(/[^0-9]/g, '');
+                                 let text = `Halo Admin Konsultasi Amanah,\n\nSaya ingin mendaftar konsultasi perlindungan dana ibadah:\n\n• Nama Lengkap: ${this.nama.trim()}\n• Nomor WhatsApp: ${this.whatsapp.trim()}\n• Kota Domisili: ${this.kota.trim() || '-'}\n• Pilihan Paket: ${this.paket}\n\nMohon informasi kepastian skema rekening penampung syariah dan panduan pendaftarannya. Terima kasih.`;
+                                 let url = `https://wa.me/${this.waTarget}?text=${encodeURIComponent(text)}`;
+
+                                 setTimeout(() => {
+                                     window.open(url, '_blank');
+                                     this.isSubmitting = false;
+                                 }, 300);
+                             }
+                         }">
+                        <!-- Decorative Top Ribbon -->
+                        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-800 via-gold-500 to-emerald-800"></div>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-lg font-serif font-bold text-emerald-950">
+                                    Formulir Konsultasi Cepat Jamaah
+                                </h3>
+                                <p class="text-xs text-slate-500">
+                                    Respon cepat tim konsultan syariah langsung ke WhatsApp Anda
+                                </p>
+                            </div>
+                            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-semibold border border-emerald-200">
+                                Gratis & Tanpa Komitmen
+                            </span>
+                        </div>
+
+                        <form @submit.prevent="submitForm()" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Nama Lengkap -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                                        Nama Lengkap Sesuai KTP <span class="text-rose-500">*</span>
+                                    </label>
+                                    <input type="text" x-model="nama" required placeholder="Contoh: H. Ahmad Subagyo"
+                                           class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 outline-none transition-all">
+                                </div>
+
+                                <!-- Nomor WhatsApp -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                                        Nomor WhatsApp Aktif <span class="text-rose-500">*</span>
+                                    </label>
+                                    <input type="tel" x-model="whatsapp" required placeholder="Contoh: 081234567890"
+                                           class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Kota Asal -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                                        Kota / Kabupaten Domisili
+                                    </label>
+                                    <input type="text" x-model="kota" placeholder="Contoh: Jakarta Selatan / Surabaya"
+                                           class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 outline-none transition-all">
+                                </div>
+
+                                <!-- Pilihan Paket -->
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                                        Rencana Ibadah yang Diminati
+                                    </label>
+                                    <select x-model="paket"
+                                            class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/20 outline-none bg-white transition-all">
+                                        <option value="Konsultasi Umum Proteksi Dana">Konsultasi Umum Proteksi Dana</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit"
+                                    :disabled="isSubmitting"
+                                    class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-800 hover:from-emerald-900 hover:to-emerald-900 text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 border border-gold-400/50 hover:scale-[1.01] active:scale-[0.99] cursor-pointer">
+                                <svg class="w-5 h-5 text-gold-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.761.879 2.796.88h.005c3.179 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.767-5.772-5.772zm7.653 5.766c-.002 4.223-3.435 7.656-7.653 7.656-1.309 0-2.587-.341-3.712-.988l-4.108 1.077 1.096-4.004c-.718-1.182-1.097-2.535-1.096-3.741.002-4.223 3.436-7.656 7.655-7.656 4.22 0 7.652 3.433 7.654 7.656z"/>
+                                </svg>
+                                <span x-text="isSubmitting ? 'Membuka WhatsApp Resmi...' : 'Konsultasi Sekarang via WhatsApp'"></span>
+                            </button>
+
+                            <!-- Privacy & Trust Footnote -->
+                            <p class="text-[11px] text-center text-slate-500 flex items-center justify-center gap-1.5 pt-1">
+                                <svg class="w-3.5 h-3.5 text-emerald-700" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Data Anda terlindungi kerahasiaannya dan langsung terhubung ke WhatsApp resmi Amanah.
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Grand Islamic Archway Frame with Ka'bah & Clock Tower Visual -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+
+                    <!-- Decorative Golden Dome Aura -->
+                    <div class="absolute -top-8 w-64 h-64 rounded-full bg-gold-400/20 blur-3xl pointer-events-none"></div>
+
+                    <!-- Outer Islamic Archway Frame -->
+                    <div class="relative p-3.5 rounded-[220px_220px_36px_36px] bg-gradient-to-b from-gold-400 via-gold-600 to-emerald-900 shadow-2xl border-4 border-gold-300/40 max-w-[420px] w-full">
+
+                        <!-- Inner Container with Ka'bah Visual -->
+                        <div class="relative rounded-[205px_205px_28px_28px] overflow-hidden aspect-[4/5] bg-emerald-950">
+                            <img src="{{ $kabahImage }}"
+                                 alt="Kemegahan Ka'bah dan Menara Jam Mekkah - Perlindungan Dana Haji & Umroh Amanah"
+                                 class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700">
+
+                            <!-- Atmospheric Shadow & Overlay Gradients -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-transparent to-black/20"></div>
+
+                            <!-- Bottom Caption on Visual -->
+                            <div class="absolute bottom-5 inset-x-5 text-center text-white">
+                                <span class="inline-block px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-gold-300 text-[11px] font-semibold border border-gold-500/30 mb-1">
+                                    📍 Makkah Al-Mukarramah
+                                </span>
+                                <h4 class="font-serif text-lg font-bold text-white drop-shadow-md">
+                                    Kepastian Perjalanan Suci
+                                </h4>
+                                <p class="text-xs text-slate-200 drop-shadow-sm">
+                                    Ibadah tenang tanpa keraguan finansial
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Trust Badge 1: Rekening Khusus Terproteksi (Top Right) -->
+                        <div class="absolute -top-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-gold-400/40 flex items-center gap-3 animate-float max-w-[210px]">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-900 text-gold-400 flex items-center justify-center shrink-0 shadow-sm font-bold">
+                                🏦
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-500 uppercase font-semibold">Rekening Khusus</span>
+                                <span class="text-xs font-bold text-emerald-950 leading-tight">Terproteksi Bank Syariah</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Trust Badge 2: Bebas Risiko Biro Nakal (Bottom Left) -->
+                        <div class="absolute -bottom-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-emerald-900/15 flex items-center gap-3 animate-float-delay max-w-[220px]">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500 text-white flex items-center justify-center shrink-0 shadow-sm font-bold">
+                                🔒
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-500 uppercase font-semibold">Sistem Escrow</span>
+                                <span class="text-xs font-bold text-emerald-950 leading-tight">Dana Terkunci Hingga Pasti Berangkat</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Small Compliance Caption Below Frame -->
+                    <div class="mt-8 text-center text-xs text-slate-500 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                        <span>Mekanisme perlindungan diawasi sesuai tata kelola keuangan syariah</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 3. PILAR MASALAH & EMOSI (STORYTELLING & EMPATHY)                         -->
+    <!-- ========================================================================= -->
+    <section id="keunggulan" class="py-20 bg-emerald-950 text-white relative overflow-hidden">
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-emerald-800/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gold-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <!-- Section Header: Storytelling & Emotional Resonance -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block px-3.5 py-1.5 rounded-full bg-gold-500/20 text-gold-300 text-xs font-semibold tracking-wider uppercase border border-gold-500/30 mb-4">
+                    Mengapa Perlindungan Ini Sangat Krusial?
+                </span>
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-serif font-black tracking-tight mb-6 leading-tight">
+                    Rencana Suci Jangan Sampai <br class="hidden sm:inline">
+                    <span class="text-gradient-gold">Tertunda atau Tercederai</span>
+                </h2>
+                <div class="relative py-4 px-6 rounded-2xl bg-emerald-900/40 border border-gold-500/20 backdrop-blur-xs">
+                    <p class="font-serif italic text-base sm:text-xl text-gold-200">
+                        "Karena ibadah ke Tanah Suci bukan sekadar perjalanan biasa, melainkan amanah seumur hidup yang dirindukan dengan tetesan doa dan keringat jerih payah bertahun-tahun."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Problem vs Solution Contrast Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+                <!-- Left: The Unfortunate Reality in Travel Industry (Pain Points) -->
+                <div class="lg:col-span-5 bg-white/5 rounded-3xl p-6 sm:p-8 border border-rose-500/20 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-semibold mb-6">
+                            <span>⚠️ Realitas Kekhawatiran Jamaah</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-serif font-bold text-white mb-4">
+                            Risiko Nyata yang Sering Menimpa Calon Jamaah:
+                        </h3>
+                        <ul class="space-y-4 text-sm text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-rose-400 font-bold text-lg leading-none shrink-0">✕</span>
+                                <span><strong>Dana Jamaah Dipakai Operasional Lain:</strong> Uang setoran disalahgunakan biro travel untuk menutup biaya jamaah sebelumnya (skema gali lubang tutup lubang).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rose-400 font-bold text-lg leading-none shrink-0">✕</span>
+                                <span><strong>Jadwal Ditunda Tanpa Batas:</strong> Dijanjikan berangkat bulan tertentu, namun terus diundur hingga bertahun-tahun tanpa alasan masuk akal.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-rose-400 font-bold text-lg leading-none shrink-0">✕</span>
+                                <span><strong>Pencairan Refund Sangat Sulit:</strong> Ketika pembatalan terjadi, uang jamaah lenyap atau hanya diganti sebagian kecil setelah proses berbelit.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 text-xs text-rose-300/80">
+                        <em>Amanah Haramain hadir untuk memutus mata rantai risiko ini secara permanen.</em>
+                    </div>
+                </div>
+
+                <!-- Right: The 3 Concrete Amanah Solutions -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                    <!-- Solusi 1 -->
+                    <div class="bg-gradient-to-b from-emerald-900 to-emerald-950 p-6 rounded-3xl border border-gold-500/30 flex flex-col justify-between shadow-lg hover:border-gold-400 transition-all">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 border border-gold-500/30 flex items-center justify-center font-bold text-xl mb-4">
+                                01
+                            </div>
+                            <h4 class="text-base font-serif font-bold text-white mb-2">
+                                Perlindungan Dana Penuh
+                            </h4>
+                            <p class="text-xs text-emerald-100/80 leading-relaxed">
+                                Dana disetor langsung ke Rekening Khusus Terproteksi Bank Syariah. Biro travel tidak bisa menarik dana secara sepihak sebelum bukti tiket & visa terbit.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-emerald-800 text-[11px] font-semibold text-gold-400">
+                            🛡️ Escrow Syariah System
+                        </div>
+                    </div>
+
+                    <!-- Solusi 2 -->
+                    <div class="bg-gradient-to-b from-emerald-900 to-emerald-950 p-6 rounded-3xl border border-gold-500/30 flex flex-col justify-between shadow-lg hover:border-gold-400 transition-all">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 border border-gold-500/30 flex items-center justify-center font-bold text-xl mb-4">
+                                02
+                            </div>
+                            <h4 class="text-base font-serif font-bold text-white mb-2">
+                                Nilai Dana Aman & Transparan
+                            </h4>
+                            <p class="text-xs text-emerald-100/80 leading-relaxed">
+                                Tidak ada spekulasi atau investasi berisiko. Setiap rupiah tabungan ibadah Anda dicatat secara transparan dengan notifikasi berkala.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-emerald-800 text-[11px] font-semibold text-gold-400">
+                            📊 Laporan Berkala Terbuka
+                        </div>
+                    </div>
+
+                    <!-- Solusi 3 -->
+                    <div class="bg-gradient-to-b from-emerald-900 to-emerald-950 p-6 rounded-3xl border border-gold-500/30 flex flex-col justify-between shadow-lg hover:border-gold-400 transition-all">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 border border-gold-500/30 flex items-center justify-center font-bold text-xl mb-4">
+                                03
+                            </div>
+                            <h4 class="text-base font-serif font-bold text-white mb-2">
+                                Ibadah Tenang & Khusyuk
+                            </h4>
+                            <p class="text-xs text-emerald-100/80 leading-relaxed">
+                                Jamaah dan keluarga cukup fokus mempersiapkan fisik serta manasik rohani. Keamanan finansial telah dijaga oleh sistem hukum dan perbankan yang kokoh.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-emerald-800 text-[11px] font-semibold text-gold-400">
+                            ✨ Ketenangan Batin Ibadah
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Emotional Visual Banner: Nabawi Mosque Serenity -->
+            <div class="mt-12 rounded-3xl overflow-hidden relative border border-gold-500/30 shadow-2xl">
+                <img src="{{ $nabawiImage }}" alt="Ketenangan Ibadah di Masjid Nabawi Madinah" class="w-full h-48 sm:h-64 object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-950/60 to-transparent flex items-center">
+                    <div class="p-6 sm:p-10 max-w-xl">
+                        <span class="text-xs font-bold text-gold-400 uppercase tracking-wider">Komitmen Kehormatan</span>
+                        <h4 class="text-xl sm:text-2xl font-serif font-bold text-white mt-1 mb-2">
+                            Amanah Anda Adalah Tanggung Jawab Akhirat Kami
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-200">
+                            Kami berdedikasi menjaga setiap rupiah dana para tamu Allah agar sampai ke Baitullah dengan selamat dan bermartabat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 4. ALUR 4 LANGKAH CARA KERJA (THE 4-STEP PROTECTION JOURNEY)             -->
+    <!-- ========================================================================= -->
+    <section id="cara-kerja" class="py-20 bg-canvas relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-semibold tracking-wider uppercase border border-emerald-300 mb-3">
+                    Proses Transparan & Mudah
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-serif font-black text-emerald-950 mb-4">
+                    Alur 4 Langkah Perlindungan Dana Ibadah Anda
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600">
+                    Sederhana, terukur, dan menjamin uang Anda tidak dapat ditarik oleh pihak manapun sebelum kepastian keberangkatan terpenuhi.
+                </p>
+            </div>
+
+            <!-- Flowchart Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+
+                <!-- Step 01 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-luxury border border-slate-200 hover:border-gold-500/50 transition-all flex flex-col justify-between relative group">
+                    <div class="absolute top-4 right-4 text-3xl font-serif font-black text-slate-200 group-hover:text-gold-200 transition-colors">
+                        01
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-emerald-900 group-hover:text-gold-300 transition-colors">
+                            📝
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-emerald-950 mb-2">
+                            Pendaftaran & Pilih Paket
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Konsultasikan rencana ibadah Anda (Umroh Reguler, Ramadhan, atau Haji Khusus). Tim Amanah memverifikasi data dan menyiapkan dokumen akad perlindungan syariah.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-800">
+                        Langkah Pertama: Konsultasi Data
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-luxury border border-slate-200 hover:border-gold-500/50 transition-all flex flex-col justify-between relative group">
+                    <div class="absolute top-4 right-4 text-3xl font-serif font-black text-slate-200 group-hover:text-gold-200 transition-colors">
+                        02
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-emerald-900 group-hover:text-gold-300 transition-colors">
+                            🏦
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-emerald-950 mb-2">
+                            Deposit ke Rekening Khusus
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Setoran disalurkan langsung ke <strong>Rekening Penampung Khusus Bank Syariah</strong> resmi atas nama PT Amanah Haramain International, bukan rekening perorangan biro.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-800">
+                        Dana Terisolasi & Aman
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-luxury border border-slate-200 hover:border-gold-500/50 transition-all flex flex-col justify-between relative group">
+                    <div class="absolute top-4 right-4 text-3xl font-serif font-black text-slate-200 group-hover:text-gold-200 transition-colors">
+                        03
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-emerald-900 group-hover:text-gold-300 transition-colors">
+                            🔍
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-emerald-950 mb-2">
+                            Verifikasi Tiket & Visa
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Dana dikunci. Biro travel hanya berhak menerima pencairan bertahap setelah kode booking tiket pesawat, konfirmasi hotel di Saudi, dan visa resmi dinyatakan valid.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-800">
+                        Pelepasan Dana Berbasis Milestone
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-luxury border border-slate-200 hover:border-gold-500/50 transition-all flex flex-col justify-between relative group">
+                    <div class="absolute top-4 right-4 text-3xl font-serif font-black text-slate-200 group-hover:text-gold-200 transition-colors">
+                        04
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-emerald-900 group-hover:text-gold-300 transition-colors">
+                            ✈️
+                        </div>
+                        <h3 class="text-lg font-serif font-bold text-emerald-950 mb-2">
+                            Berangkat ke Baitullah
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Anda terbang menuju Tanah Suci dengan damai dan bahagia. Ibadah umroh atau haji terlaksana dengan tenang bersama seluruh keluarga tercinta.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-800">
+                        Ibadah Mabrur & Khusyuk
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Flowchart Guarantee Callout -->
+            <div class="mt-12 p-6 rounded-2xl bg-emerald-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 border border-gold-500/30">
+                <div class="flex items-center gap-4 text-center sm:text-left">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500 text-emerald-950 flex items-center justify-center font-black text-xl shrink-0">
+                        100%
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-base text-gold-300">
+                            Jaminan Pengembalian Dana Bila Biro Gagal Memenuhi Syarat
+                        </h4>
+                        <p class="text-xs text-emerald-100">
+                            Jika biro travel rekanan tidak menerbitkan tiket/visa sesuai tenggat waktu, dana Anda di rekening penampung aman untuk dikembalikan penuh.
+                        </p>
+                    </div>
+                </div>
+                <a href="{{ $waUrlHero }}" target="_blank" rel="noopener noreferrer"
+                   class="shrink-0 px-6 py-2.5 rounded-full bg-gold-500 hover:bg-gold-400 text-emerald-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-md">
+                    Pelajari Syarat & Ketentuan
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 5. TIGA PILAR LEGITIMASI & TRANSPARANSI KONKRET                          -->
+    <!-- ========================================================================= -->
+    <section id="legalitas" class="py-20 bg-canvas relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-semibold tracking-wider uppercase border border-emerald-300 mb-3">
+                    Bukti & Transparansi Konkret
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-serif font-black text-emerald-950 mb-4">
+                    3 Pilar Legitimasi PT Amanah Haramain International
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600">
+                    Bukan sekadar janji manis atau klaim kosong. Kami beroperasi secara legal, fisik, dan bermitra dengan institusi keuangan syariah terkemuka di Indonesia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Pilar 1: Legalitas Hukum Korporasi -->
+                <div class="bg-white rounded-3xl p-7 shadow-luxury border-2 border-emerald-900/10 hover:border-gold-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-900 text-gold-300 flex items-center justify-center font-bold text-2xl mb-6 shadow-md">
+                            ⚖️
+                        </div>
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider block mb-1">Pilar 01</span>
+                        <h3 class="text-xl font-serif font-bold text-emerald-950 mb-3">
+                            Legalitas Hukum Resmi
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Berbadan hukum resmi Perseroan Terbatas dengan Nomor Induk Berusaha (NIB) dan SK Pengesahan dari Kementerian Hukum dan HAM Republik Indonesia.
+                        </p>
+
+                        <div class="space-y-2 bg-slate-50 p-3.5 rounded-xl text-xs border border-slate-200">
+                            <div class="flex justify-between items-center py-1 border-b border-slate-200">
+                                <span class="text-slate-500">NIB:</span>
+                                <span class="font-mono font-bold text-emerald-950">{{ $nibNumber }}</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-slate-500">Kemenkumham:</span>
+                                <span class="font-mono font-bold text-emerald-950 text-[11px]">{{ $ahuNumber }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-emerald-800">
+                        <span>✓ Terverifikasi Ditjen AHU RI</span>
+                    </div>
+                </div>
+
+                <!-- Pilar 2: Rekening Penampung Khusus Bank Syariah -->
+                <div class="bg-white rounded-3xl p-7 shadow-luxury border-2 border-emerald-900/10 hover:border-gold-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-900 text-gold-300 flex items-center justify-center font-bold text-2xl mb-6 shadow-md">
+                            🏦
+                        </div>
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider block mb-1">Pilar 02</span>
+                        <h3 class="text-xl font-serif font-bold text-emerald-950 mb-3">
+                            Rekening Penampung Bank Syariah
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Seluruh dana proteksi ditempatkan di Rekening Khusus Terproteksi atas nama korporasi PT Amanah Haramain International dengan mekanisme pelepasan dana berbasis kepastian tiket & visa.
+                        </p>
+
+                        <div class="space-y-2 bg-slate-50 p-3.5 rounded-xl text-xs border border-slate-200">
+                            <div class="flex justify-between items-center py-1 border-b border-slate-200">
+                                <span class="text-slate-500">Mitra Perbankan:</span>
+                                <span class="font-bold text-emerald-950">{{ $bankPartner }}</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-slate-500">Tipe Rekening:</span>
+                                <span class="font-bold text-emerald-950">Escrow / Dedicated Account</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-emerald-800">
+                        <span>✓ Bebas Penarikan Sepihak</span>
+                    </div>
+                </div>
+
+                <!-- Pilar 3: Kantor Representatif Nyata -->
+                <div class="bg-white rounded-3xl p-7 shadow-luxury border-2 border-emerald-900/10 hover:border-gold-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-900 text-gold-300 flex items-center justify-center font-bold text-2xl mb-6 shadow-md">
+                            🏢
+                        </div>
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider block mb-1">Pilar 03</span>
+                        <h3 class="text-xl font-serif font-bold text-emerald-950 mb-3">
+                            Keberadaan Fisik Nyata
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Bukan entitas virtual. Kantor representatif kami berdiri di kawasan bisnis bergengsi Jakarta Selatan, siap menerima kunjungan silaturahmi dan konsultasi tatap muka langsung.
+                        </p>
+
+                        <div class="bg-slate-50 p-3.5 rounded-xl text-xs border border-slate-200 space-y-1">
+                            <div class="font-bold text-emerald-950">Alamat Kantor:</div>
+                            <div class="text-slate-600 text-[11px] leading-relaxed">{{ $officeAddress }}</div>
+                            <div class="text-[10px] text-emerald-700 font-medium pt-1">{{ $officeHours }}</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-emerald-800">
+                        <span>✓ Terbuka Untuk Konsultasi Offline</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 7. FAQ (MENJAWAB KERAGUAN TERBESAR JAMAAH)                                -->
+    <!-- ========================================================================= -->
+    <section id="faq" class="py-20 bg-white border-t border-emerald-900/10"
+             x-data="{ activeFaq: 1 }">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-semibold tracking-wider uppercase border border-emerald-300 mb-3">
+                    Tanya Jawab Jamaah
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-serif font-black text-emerald-950 mb-4">
+                    Pertanyaan yang Paling Sering Diajukan
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600">
+                    Keterbukaan informasi demi ketenangan hati dan kemantapan langkah Anda menuju Baitullah.
+                </p>
+            </div>
+
+            <!-- Accordion List -->
+            <div class="space-y-4">
+
+                <!-- FAQ 1 -->
+                <div class="rounded-2xl border border-slate-200 overflow-hidden transition-all bg-canvas">
+                    <button type="button" @click="activeFaq = (activeFaq === 1 ? 0 : 1)"
+                            class="w-full py-4 px-6 text-left flex items-center justify-between gap-4 font-serif font-bold text-base sm:text-lg text-emerald-950 cursor-pointer">
+                        <span>1. Apakah PT Amanah Haramain International adalah biro travel umroh?</span>
+                        <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center text-sm font-black shrink-0 transition-transform"
+                              :class="activeFaq === 1 ? 'rotate-180 bg-emerald-900 text-white' : ''">
+                            ↓
+                        </span>
+                    </button>
+                    <div x-show="activeFaq === 1" x-collapse
+                         class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Bukan. PT Amanah Haramain International adalah <strong>penyedia layanan keuangan untuk perlindungan dana jamaah haji dan umroh (Financial Safety & Escrow Assurance)</strong>. Kami bermitra dengan biro travel resmi berizin Kementerian Agama untuk memastikan dana yang disetor jamaah tidak disalahgunakan atau diputar untuk keperluan di luar keberangkatan Anda.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="rounded-2xl border border-slate-200 overflow-hidden transition-all bg-canvas">
+                    <button type="button" @click="activeFaq = (activeFaq === 2 ? 0 : 2)"
+                            class="w-full py-4 px-6 text-left flex items-center justify-between gap-4 font-serif font-bold text-base sm:text-lg text-emerald-950 cursor-pointer">
+                        <span>2. Bagaimana dana saya dipastikan aman dan tidak bisa dibawa lari?</span>
+                        <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center text-sm font-black shrink-0 transition-transform"
+                              :class="activeFaq === 2 ? 'rotate-180 bg-emerald-900 text-white' : ''">
+                            ↓
+                        </span>
+                    </button>
+                    <div x-show="activeFaq === 2" x-collapse
+                         class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Dana Anda tidak masuk ke rekening pribadi biro travel maupun perorangan, melainkan disetor ke <strong>Rekening Penampung Khusus Bank Syariah</strong> resmi atas nama PT Amanah Haramain International. Dana tersebut dikunci oleh sistem perbankan syariah dan hanya dapat dicairkan kepada biro setelah tiket pesawat terbit dan visa resmi telah terverifikasi.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="rounded-2xl border border-slate-200 overflow-hidden transition-all bg-canvas">
+                    <button type="button" @click="activeFaq = (activeFaq === 3 ? 0 : 3)"
+                            class="w-full py-4 px-6 text-left flex items-center justify-between gap-4 font-serif font-bold text-base sm:text-lg text-emerald-950 cursor-pointer">
+                        <span>3. Bagaimana jika terjadi keadaan darurat atau sakit dan saya ingin membatalkan perjalanan?</span>
+                        <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center text-sm font-black shrink-0 transition-transform"
+                              :class="activeFaq === 3 ? 'rotate-180 bg-emerald-900 text-white' : ''">
+                            ↓
+                        </span>
+                    </button>
+                    <div x-show="activeFaq === 3" x-collapse
+                         class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Prosedur pengembalian dana diatur secara jelas dan transparan dalam akad tertulis. Jika tiket/visa belum diterbitkan, dana Anda di rekening penampung aman untuk dikembalikan dengan potongan biaya administrasi yang sangat wajar sesuai ketentuan syariah, tanpa ada penahanan sepihak berlarut-larut.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="rounded-2xl border border-slate-200 overflow-hidden transition-all bg-canvas">
+                    <button type="button" @click="activeFaq = (activeFaq === 4 ? 0 : 4)"
+                            class="w-full py-4 px-6 text-left flex items-center justify-between gap-4 font-serif font-bold text-base sm:text-lg text-emerald-950 cursor-pointer">
+                        <span>4. Apakah akad dan mekanisme perlindungan ini sesuai syariat Islam?</span>
+                        <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center text-sm font-black shrink-0 transition-transform"
+                              :class="activeFaq === 4 ? 'rotate-180 bg-emerald-900 text-white' : ''">
+                            ↓
+                        </span>
+                    </button>
+                    <div x-show="activeFaq === 4" x-collapse
+                         class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Ya, 100% patuh syariah. Mekanisme ini mengadopsi akad <em>Wadi'ah Yad Dhamanah</em> (titipan dengan jaminan pemeliharaan) dan <em>Wakalah bil Ujrah</em> untuk pengawasan milestone keberangkatan. Seluruh rekening berada di Bank Syariah mitra tanpa unsur riba, gharar (ketidakpastian), maupun maysir (spekulasi).
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="rounded-2xl border border-slate-200 overflow-hidden transition-all bg-canvas">
+                    <button type="button" @click="activeFaq = (activeFaq === 5 ? 0 : 5)"
+                            class="w-full py-4 px-6 text-left flex items-center justify-between gap-4 font-serif font-bold text-base sm:text-lg text-emerald-950 cursor-pointer">
+                        <span>5. Apakah ada biaya tambahan yang memberatkan calon jamaah?</span>
+                        <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center text-sm font-black shrink-0 transition-transform"
+                              :class="activeFaq === 5 ? 'rotate-180 bg-emerald-900 text-white' : ''">
+                            ↓
+                        </span>
+                    </button>
+                    <div x-show="activeFaq === 5" x-collapse
+                         class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Tidak ada biaya tersembunyi. Skema perlindungan dana kami dirancang agar terjangkau dan sering kali telah terintegrasi dalam paket rekanan biro travel terpercaya sehingga jamaah tidak dibebani biaya di luar kewajaran.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Still Have Questions CTA -->
+            <div class="mt-10 text-center">
+                <p class="text-sm text-slate-600 mb-3">
+                    Masih memiliki pertanyaan khusus seputar kasus Anda?
+                </p>
+                <a href="{{ $waUrlHero }}" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 text-sm font-bold text-emerald-800 hover:text-emerald-950 underline underline-offset-4">
+                    <span>Tanyakan Langsung ke Konsultan Syariah Kami via WhatsApp →</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 8. FINAL LUXURY CTA BANNER (EMERALD & GOLD)                              -->
+    <!-- ========================================================================= -->
+    <section class="py-16 sm:py-24 bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-white relative overflow-hidden border-t-2 border-gold-500/40">
+        <!-- Ambient Gold Glow Center -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gold-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gold-400/20 text-gold-300 text-xs font-semibold tracking-wider uppercase border border-gold-400/30 mb-6">
+                Langkah Nyata Ibadah Aman
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-serif font-black tracking-tight mb-6 leading-tight">
+                Wujudkan Kerinduan ke Baitullah <br class="hidden sm:inline">
+                dengan <span class="text-gradient-gold">Hati yang Tenang & Tentram.</span>
+            </h2>
+            <p class="text-sm sm:text-lg text-emerald-100/90 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                Lindungi dana ibadah Anda dan keluarga hari ini. Hubungi tim konsultan resmi <strong class="text-white">{{ $companyName }}</strong> untuk mendapatkan panduan lengkap tanpa biaya pendaftaran awal.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="{{ $waUrlHero }}" target="_blank" rel="noopener noreferrer"
+                   class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 hover:from-gold-400 hover:to-gold-300 text-emerald-950 font-black text-base shadow-xl hover:shadow-gold-glow transition-all duration-200 flex items-center justify-center gap-3 border border-white/40 hover:scale-105">
+                    <svg class="w-5 h-5 text-emerald-950" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.761.879 2.796.88h.005c3.179 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.767-5.772-5.772zm7.653 5.766c-.002 4.223-3.435 7.656-7.653 7.656-1.309 0-2.587-.341-3.712-.988l-4.108 1.077 1.096-4.004c-.718-1.182-1.097-2.535-1.096-3.741.002-4.223 3.436-7.656 7.655-7.656 4.22 0 7.652 3.433 7.654 7.656z"/>
+                    </svg>
+                    <span>Konsultasi Gratis via WhatsApp Sekarang</span>
+                </a>
+                <a href="#hero"
+                   class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-base transition-colors border border-white/20">
+                    Isi Formulir di Atas
+                </a>
+            </div>
+
+            <div class="mt-8 flex items-center justify-center flex-wrap gap-6 text-xs text-emerald-200">
+                <span class="flex items-center gap-1.5">
+                    <span class="text-gold-400">✓</span> Respons Cepat < 5 Menit
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <span class="text-gold-400">✓</span> Konsultasi 100% Bebas Biaya
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <span class="text-gold-400">✓</span> Transparan & Terproteksi
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 9. FOOTER & LEGAL DISCLAIMER                                             -->
+    <!-- ========================================================================= -->
+    <footer class="bg-emerald-950 text-slate-300 pt-16 pb-12 border-t border-gold-600/20 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
+
+                <!-- Brand Info (Col 5) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3.5">
+                        <img src="/images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-11 w-auto object-contain">
+                        <div class="flex flex-col justify-center">
+                            <span class="text-2xl font-brand font-black tracking-wide text-white block leading-none">
+                                AMANAH
+                            </span>
+                            <span class="text-xs font-brand font-bold text-[#C8972E] mt-1 leading-tight tracking-tight">
+                                Umroh dan Hajj Protection
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed text-xs">
+                        {{ $companyName }} adalah perusahaan penyedia layanan keuangan terpercaya untuk perlindungan dana jamaah haji dan umroh di Indonesia. Menjaga ketenteraman ibadah melalui sistem penampungan dana aman berbasis perbankan syariah.
+                    </p>
+                    <div class="text-[11px] text-slate-400 space-y-1">
+                        <div>NIB: <span class="font-mono text-white">{{ $nibNumber }}</span></div>
+                        <div>Keputusan Menteri Hukum dan HAM RI: <span class="font-mono text-white">{{ $ahuNumber }}</span></div>
+                    </div>
+                </div>
+
+                <!-- Quick Links (Col 3) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="font-serif font-bold text-white text-sm mb-4">Navigasi Halaman</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#hero" class="hover:text-gold-300 transition-colors">Beranda Utama</a></li>
+                        <li><a href="#keunggulan" class="hover:text-gold-300 transition-colors">Pilar Keamanan & Solusi</a></li>
+                        <li><a href="#cara-kerja" class="hover:text-gold-300 transition-colors">Alur 4 Langkah Perlindungan</a></li>
+                        <li><a href="#legalitas" class="hover:text-gold-300 transition-colors">Legalitas Resmi Perusahaan</a></li>
+                        <li><a href="#faq" class="hover:text-gold-300 transition-colors">Pertanyaan Umum (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Office Contact Info (Col 4) -->
+                <div class="lg:col-span-4 space-y-3">
+                    <h4 class="font-serif font-bold text-white text-sm mb-4">Kantor Representatif</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        📍 {{ $officeAddress }}
+                    </p>
+                    <p class="text-slate-400 text-xs">
+                        🕒 {{ $officeHours }}
+                    </p>
+                    <div class="pt-2">
+                        <span class="block text-slate-400 text-[11px]">Hotline Layanan Konsultasi:</span>
+                        <a href="{{ $waUrlHero }}" class="text-gold-300 font-bold hover:underline">
+                            +{{ $waNumber }} (WhatsApp Chat)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Disclaimer Box Anti-Klaim Kosong -->
+            <div class="p-4 rounded-xl bg-emerald-900/40 border border-gold-500/20 text-[11px] text-slate-400 leading-relaxed mb-8">
+                <strong class="text-gold-300">Disclaimer Regulasi & Layanan:</strong> {{ $companyName }} beroperasi sebagai institusi penjamin kepatuhan finansial dan penampungan dana aman (*financial safety escrow facilitator*). Kami tidak bertindak sebagai maskapai penerbangan atau penyelenggara perjalanan ibadah umroh (PPIU) mandiri, melainkan bekerjasama dengan biro travel resmi berizin Kemenag RI untuk melindungi hak-hak keuangan jamaah.
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-6 border-t border-emerald-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-slate-500">
+                <p>© 2026 {{ $companyName }}. Seluruh hak cipta dilindungi undang-undang.</p>
+                <div class="flex gap-4">
+                    <a href="#legalitas" class="hover:text-gold-300">Kebijakan Privasi</a>
+                    <span>•</span>
+                    <a href="#legalitas" class="hover:text-gold-300">Syarat & Ketentuan</a>
+                    <span>•</span>
+                    <a href="{{ $waUrlHero }}" class="hover:text-gold-300">Hubungi Kami</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ========================================================================= -->
+    <!-- 10. FLOATING STICKY WHATSAPP BUTTON (MOBILE & DESKTOP)                   -->
+    <!-- ========================================================================= -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        <a href="{{ $waUrlHero }}" target="_blank" rel="noopener noreferrer"
+           class="group flex items-center gap-3 px-4 py-3 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white shadow-2xl border-2 border-gold-400 transition-all duration-300 hover:scale-105 active:scale-95"
+           aria-label="Konsultasi WhatsApp">
+            <span class="hidden md:inline font-bold text-xs tracking-wide">
+                Tanya Konsultan Syariah
+            </span>
+            <div class="relative w-7 h-7 flex items-center justify-center">
+                <span class="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75"></span>
+                <svg class="w-6 h-6 text-white relative z-10" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.761.879 2.796.88h.005c3.179 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.767-5.772-5.772zm7.653 5.766c-.002 4.223-3.435 7.656-7.653 7.656-1.309 0-2.587-.341-3.712-.988l-4.108 1.077 1.096-4.004c-.718-1.182-1.097-2.535-1.096-3.741.002-4.223 3.436-7.656 7.655-7.656 4.22 0 7.652 3.433 7.654 7.656z"/>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>
