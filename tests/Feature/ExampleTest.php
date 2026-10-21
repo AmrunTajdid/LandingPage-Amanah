@@ -18,6 +18,10 @@ class ExampleTest extends TestCase
         $response->assertSee('PT Amanah Haramain International');
         $response->assertSee('AMANAH - Umroh dan Hajj Protection', false);
         $response->assertDontSee('Kalkulator Simulasi Proteksi Dana Jamaah');
+        $response->assertSee('1912250031449');
+        $response->assertSee('6281295340314');
+        $response->assertSee('Rekening Pribadi Jamaah');
+        $response->assertDontSee('Sistem Escrow');
         $response->assertSee('Bank Muamalat');
         $response->assertSee('logo-icon.png');
     }

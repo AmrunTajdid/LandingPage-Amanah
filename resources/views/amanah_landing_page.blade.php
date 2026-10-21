@@ -5,21 +5,21 @@
     |--------------------------------------------------------------------------
     | Variabel di bawah dapat disesuaikan sewaktu-waktu sesuai kebutuhan operasional.
     */
-    $waNumber = '62000'; // Format internasional tanpa simbol '+'
+    $waNumber = '6281295340314'; // Format internasional tanpa simbol '+'
     $companyName = 'PT Amanah Haramain International';
     $brandName = 'AMANAH - Umroh dan Hajj Protection';
     $tagline = 'Layanan Keuangan Perlindungan Dana Jamaah Haji & Umroh';
     $officeAddress = 'Jl. Gelong Baru Tengah No.1, RT.6/RW.7, Tomang, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11440';
     $officeHours = 'Senin - Jumat: 09.00 - 17.00 WIB';
-    $nibNumber = '0000';
+    $nibNumber = '1912250031449';
     $ahuNumber = 'AHU-';
     $bankPartner = 'Bank Muamalat';
 
-    // Aset Gambar (Root-relative untuk kompatibilitas Vercel & Production)
-    $kabahImage = '/images/kabah-makkah.webp';
-    $nabawiImage = '/images/madinah-nabawi.webp';
-    $logoImage = '/images/logo-amanah.jpg';
-    $logoSvg = '/images/logo-amanah.svg';
+    // Aset Gambar (Relative untuk kompatibilitas offline, Vercel & cPanel)
+    $kabahImage = 'images/kabah-makkah.webp';
+    $nabawiImage = 'images/madinah-nabawi.webp';
+    $logoImage = 'images/logo-amanah.jpg';
+    $logoSvg = 'images/logo-amanah.svg';
 
     // Pesan Default WhatsApp Cepat
     $waHeroMessage = "Halo Tim Konsultasi Amanah,\n\nSaya tertarik mengetahui lebih lanjut mengenai program Perlindungan Dana Umroh & Haji Amanah agar rencana ibadah saya terjamin aman.\n\nMohon informasi prosedur dan persyaratannya. Terima kasih.";
@@ -35,10 +35,10 @@
     <meta name="keywords" content="perlindungan umroh, proteksi dana haji, tabungan umroh aman, travel umroh terpercaya, rekening penampung syariah, amanah haramain">
 
     <!-- Favicon & Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-icon.png?v=2">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/logo-icon.png?v=2">
-    <link rel="shortcut icon" href="/favicon.ico?v=2">
-    <link rel="apple-touch-icon" href="/images/logo-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo-icon.png?v=2">
+    <link rel="shortcut icon" href="favicon.ico?v=2">
+    <link rel="apple-touch-icon" href="images/logo-icon.png?v=2">
 
     <!-- Open Graph / Meta Ads & Google Ads Support -->
     <meta property="og:type" content="website">
@@ -135,7 +135,8 @@
         }
     </style>
 </head>
-<body class="bg-canvas text-slateNavy font-sans antialiased selection:bg-gold-500 selection:text-white">
+<body class="bg-canvas text-slateNavy font-sans antialiased selection:bg-gold-500 selection:text-white"
+      x-data="{ showPrivacyModal: false, showTermsModal: false }">
 
     <!-- ========================================================================= -->
     <!-- 1. TOP BAR & STICKY NAVBAR                                               -->
@@ -161,7 +162,7 @@
                         <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
                         <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
                     </svg>
-                    Rekening Khusus: <strong class="text-white font-medium">{{ $bankPartner }}</strong>
+                    Rekening Terproteksi: <strong class="text-white font-medium">{{ $bankPartner }}</strong>
                 </span>
             </div>
         </div>
@@ -175,7 +176,7 @@
 
                 <!-- Logo & Brand Identifier -->
                 <a href="#hero" class="flex items-center gap-3.5 group py-1">
-                    <img src="/images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-12 w-auto object-contain group-hover:scale-105 transition-transform">
+                    <img src="images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-12 w-auto object-contain group-hover:scale-105 transition-transform">
                     <div class="flex flex-col justify-center">
                         <span class="text-2xl sm:text-[28px] font-brand font-black tracking-wide text-[#1C6758] leading-none">
                             AMANAH
@@ -268,7 +269,7 @@
 
                     <!-- Emotional Sub-headline -->
                     <p class="text-base sm:text-lg text-slate-700 mb-8 leading-relaxed max-w-2xl font-normal">
-                        Bebas dari rasa was-was biro travel bermasalah atau gagal berangkat. Bersama <strong class="text-emerald-950 font-semibold">{{ $brandName }}</strong>, dana ibadah Anda ditempatkan di <strong>Rekening Khusus Terproteksi Bank Syariah</strong> hingga kepastian tiket, visa, dan jadwal resmi terbit.
+                        Bebas dari rasa was-was biro travel bermasalah atau gagal berangkat. Bersama <strong class="text-emerald-950 font-semibold">{{ $brandName }}</strong>, dana ibadah Anda ditempatkan di <strong>Rekening Pribadi Jamaah Terproteksi</strong> hingga kepastian tiket, visa, dan jadwal resmi terbit.
                     </p>
 
                     <!-- 4 Value Badges -->
@@ -277,7 +278,7 @@
                             <div class="w-8 h-8 rounded-lg bg-emerald-800 text-gold-300 flex items-center justify-center font-bold text-xs shrink-0">✓</div>
                             <div class="flex flex-col">
                                 <span class="text-xs font-bold text-emerald-950">Aman</span>
-                                <span class="text-[10px] text-slate-500">Rekening Khusus</span>
+                                <span class="text-[10px] text-slate-500">Rekening Pribadi</span>
                             </div>
                         </div>
                         <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-emerald-900/10 shadow-xs">
@@ -319,7 +320,7 @@
                                  }
                                  this.isSubmitting = true;
                                  let cleanWa = this.whatsapp.replace(/[^0-9]/g, '');
-                                 let text = `Halo Admin Konsultasi Amanah,\n\nSaya ingin mendaftar konsultasi perlindungan dana ibadah:\n\n• Nama Lengkap: ${this.nama.trim()}\n• Nomor WhatsApp: ${this.whatsapp.trim()}\n• Kota Domisili: ${this.kota.trim() || '-'}\n• Pilihan Paket: ${this.paket}\n\nMohon informasi kepastian skema rekening penampung syariah dan panduan pendaftarannya. Terima kasih.`;
+                                 let text = `Halo Admin Konsultasi Amanah,\n\nSaya ingin mendaftar konsultasi perlindungan dana ibadah:\n\n• Nama Lengkap: ${this.nama.trim()}\n• Nomor WhatsApp: ${this.whatsapp.trim()}\n• Kota Domisili: ${this.kota.trim() || '-'}\n• Pilihan Paket: ${this.paket}\n\nMohon informasi kepastian skema rekening pribadi terproteksi dan panduan pendaftarannya. Terima kasih.`;
                                  let url = `https://wa.me/${this.waTarget}?text=${encodeURIComponent(text)}`;
 
                                  setTimeout(() => {
@@ -442,14 +443,14 @@
                             </div>
                         </div>
 
-                        <!-- Floating Trust Badge 1: Rekening Khusus Terproteksi (Top Right) -->
+                        <!-- Floating Trust Badge 1: Terproteksi Rekening Pribadi Jamaah (Top Right) -->
                         <div class="absolute -top-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-gold-400/40 flex items-center gap-3 animate-float max-w-[210px]">
                             <div class="w-10 h-10 rounded-xl bg-emerald-900 text-gold-400 flex items-center justify-center shrink-0 shadow-sm font-bold">
                                 🏦
                             </div>
                             <div class="flex flex-col">
-                                <span class="text-[10px] text-slate-500 uppercase font-semibold">Rekening Khusus</span>
-                                <span class="text-xs font-bold text-emerald-950 leading-tight">Terproteksi Bank Syariah</span>
+                                <span class="text-[10px] text-slate-500 uppercase font-semibold">Terproteksi</span>
+                                <span class="text-xs font-bold text-emerald-950 leading-tight">rekening pribadi jamaah</span>
                             </div>
                         </div>
 
@@ -459,7 +460,7 @@
                                 🔒
                             </div>
                             <div class="flex flex-col">
-                                <span class="text-[10px] text-slate-500 uppercase font-semibold">Sistem Escrow</span>
+                                <span class="text-[10px] text-slate-500 uppercase font-semibold">Sistem</span>
                                 <span class="text-xs font-bold text-emerald-950 leading-tight">Dana Terkunci Hingga Pasti Berangkat</span>
                             </div>
                         </div>
@@ -550,11 +551,11 @@
                                 Perlindungan Dana Penuh
                             </h4>
                             <p class="text-xs text-emerald-100/80 leading-relaxed">
-                                Dana disetor langsung ke Rekening Khusus Terproteksi Bank Syariah. Biro travel tidak bisa menarik dana secara sepihak sebelum bukti tiket & visa terbit.
+                                Dana disetor langsung ke Rekening Pribadi Jamaah. Biro travel tidak bisa menarik dana secara sepihak sebelum bukti tiket & visa terbit.
                             </p>
                         </div>
                         <div class="mt-6 pt-4 border-t border-emerald-800 text-[11px] font-semibold text-gold-400">
-                            🛡️ Escrow Syariah System
+                            🛡️ Sistem Proteksi Syariah
                         </div>
                     </div>
 
@@ -670,10 +671,10 @@
                             🏦
                         </div>
                         <h3 class="text-lg font-serif font-bold text-emerald-950 mb-2">
-                            Deposit ke Rekening Khusus
+                            Deposit ke Rekening Pribadi Jamaah
                         </h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            Setoran disalurkan langsung ke <strong>Rekening Penampung Khusus Bank Syariah</strong> resmi atas nama PT Amanah Haramain International, bukan rekening perorangan biro.
+                            Setoran disalurkan langsung ke <strong>Rekening Pribadi Jamaah</strong>.
                         </p>
                     </div>
                     <div class="mt-6 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-800">
@@ -728,7 +729,7 @@
             <!-- Flowchart Guarantee Callout -->
             <div class="mt-12 p-6 rounded-2xl bg-emerald-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 border border-gold-500/30">
                 <div class="flex items-center gap-4 text-center sm:text-left">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500 text-emerald-950 flex items-center justify-center font-black text-xl shrink-0">
+                    <div class="min-w-[68px] h-12 px-3 rounded-xl bg-gold-500 text-emerald-950 flex items-center justify-center font-black text-lg shrink-0 shadow-sm">
                         100%
                     </div>
                     <div>
@@ -736,7 +737,7 @@
                             Jaminan Pengembalian Dana Bila Biro Gagal Memenuhi Syarat
                         </h4>
                         <p class="text-xs text-emerald-100">
-                            Jika biro travel rekanan tidak menerbitkan tiket/visa sesuai tenggat waktu, dana Anda di rekening penampung aman untuk dikembalikan penuh.
+                            Jika biro travel rekanan tidak menerbitkan tiket/visa sesuai tenggat waktu, dana Anda di rekening pribadi aman untuk dikembalikan penuh.
                         </p>
                     </div>
                 </div>
@@ -801,7 +802,7 @@
                     </div>
                 </div>
 
-                <!-- Pilar 2: Rekening Penampung Khusus Bank Syariah -->
+                <!-- Pilar 2: Rekening Pribadi Jamaah Terproteksi Bank Syariah -->
                 <div class="bg-white rounded-3xl p-7 shadow-luxury border-2 border-emerald-900/10 hover:border-gold-500/50 transition-all flex flex-col justify-between">
                     <div>
                         <div class="w-14 h-14 rounded-2xl bg-emerald-900 text-gold-300 flex items-center justify-center font-bold text-2xl mb-6 shadow-md">
@@ -809,10 +810,10 @@
                         </div>
                         <span class="text-xs font-bold text-gold-600 uppercase tracking-wider block mb-1">Pilar 02</span>
                         <h3 class="text-xl font-serif font-bold text-emerald-950 mb-3">
-                            Rekening Penampung Bank Syariah
+                            Rekening Pribadi Jamaah
                         </h3>
                         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                            Seluruh dana proteksi ditempatkan di Rekening Khusus Terproteksi atas nama korporasi PT Amanah Haramain International dengan mekanisme pelepasan dana berbasis kepastian tiket & visa.
+                            Seluruh dana proteksi ditempatkan di Rekening Pribadi Jamaah dengan mekanisme pelepasan dana berbasis kepastian tiket & visa.
                         </p>
 
                         <div class="space-y-2 bg-slate-50 p-3.5 rounded-xl text-xs border border-slate-200">
@@ -822,7 +823,7 @@
                             </div>
                             <div class="flex justify-between items-center py-1">
                                 <span class="text-slate-500">Tipe Rekening:</span>
-                                <span class="font-bold text-emerald-950">Escrow / Dedicated Account</span>
+                                <span class="font-bold text-emerald-950">Dedicated Account</span>
                             </div>
                         </div>
                     </div>
@@ -898,7 +899,7 @@
                     </button>
                     <div x-show="activeFaq === 1" x-collapse
                          class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                        Bukan. PT Amanah Haramain International adalah <strong>penyedia layanan keuangan untuk perlindungan dana jamaah haji dan umroh (Financial Safety & Escrow Assurance)</strong>. Kami bermitra dengan biro travel resmi berizin Kementerian Agama untuk memastikan dana yang disetor jamaah tidak disalahgunakan atau diputar untuk keperluan di luar keberangkatan Anda.
+                        Bukan. PT Amanah Haramain International adalah <strong>penyedia layanan keuangan untuk perlindungan dana jamaah haji dan umroh</strong>. Kami bermitra dengan biro travel resmi berizin Kementerian Agama untuk memastikan dana yang disetor jamaah tidak disalahgunakan atau diputar untuk keperluan di luar keberangkatan Anda.
                     </div>
                 </div>
 
@@ -914,7 +915,7 @@
                     </button>
                     <div x-show="activeFaq === 2" x-collapse
                          class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                        Dana Anda tidak masuk ke rekening pribadi biro travel maupun perorangan, melainkan disetor ke <strong>Rekening Penampung Khusus Bank Syariah</strong> resmi atas nama PT Amanah Haramain International. Dana tersebut dikunci oleh sistem perbankan syariah dan hanya dapat dicairkan kepada biro setelah tiket pesawat terbit dan visa resmi telah terverifikasi.
+                        Dana Anda aman karna masuk ke Rekening Pribadi anda. Dana tersebut dikunci oleh sistem perbankan syariah dan hanya dapat dicairkan kepada biro setelah tiket pesawat terbit dan visa resmi telah terverifikasi.
                     </div>
                 </div>
 
@@ -930,7 +931,7 @@
                     </button>
                     <div x-show="activeFaq === 3" x-collapse
                          class="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                        Prosedur pengembalian dana diatur secara jelas dan transparan dalam akad tertulis. Jika tiket/visa belum diterbitkan, dana Anda di rekening penampung aman untuk dikembalikan dengan potongan biaya administrasi yang sangat wajar sesuai ketentuan syariah, tanpa ada penahanan sepihak berlarut-larut.
+                        Prosedur pengembalian dana diatur secara jelas dan transparan dalam akad tertulis. Jika tiket/visa belum diterbitkan, dana Anda di rekening pribadi aman untuk dikembalikan dengan potongan biaya administrasi yang sangat wajar sesuai ketentuan syariah, tanpa ada penahanan sepihak berlarut-larut.
                     </div>
                 </div>
 
@@ -1041,7 +1042,7 @@
                 <!-- Brand Info (Col 5) -->
                 <div class="lg:col-span-5 space-y-4">
                     <div class="flex items-center gap-3.5">
-                        <img src="/images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-11 w-auto object-contain">
+                        <img src="images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-11 w-auto object-contain">
                         <div class="flex flex-col justify-center">
                             <span class="text-2xl font-brand font-black tracking-wide text-white block leading-none">
                                 AMANAH
@@ -1093,16 +1094,16 @@
 
             <!-- Disclaimer Box Anti-Klaim Kosong -->
             <div class="p-4 rounded-xl bg-emerald-900/40 border border-gold-500/20 text-[11px] text-slate-400 leading-relaxed mb-8">
-                <strong class="text-gold-300">Disclaimer Regulasi & Layanan:</strong> {{ $companyName }} beroperasi sebagai institusi penjamin kepatuhan finansial dan penampungan dana aman (*financial safety escrow facilitator*). Kami tidak bertindak sebagai maskapai penerbangan atau penyelenggara perjalanan ibadah umroh (PPIU) mandiri, melainkan bekerjasama dengan biro travel resmi berizin Kemenag RI untuk melindungi hak-hak keuangan jamaah.
+                <strong class="text-gold-300">Disclaimer Regulasi & Layanan:</strong> {{ $companyName }} beroperasi sebagai institusi penjamin kepatuhan finansial dan penampungan dana aman. Kami tidak bertindak sebagai maskapai penerbangan atau penyelenggara perjalanan ibadah umroh (PPIU) mandiri, melainkan bekerjasama dengan biro travel resmi berizin Kemenag RI untuk melindungi hak-hak keuangan jamaah.
             </div>
 
             <!-- Copyright -->
             <div class="pt-6 border-t border-emerald-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-slate-500">
                 <p>© 2026 {{ $companyName }}. Seluruh hak cipta dilindungi undang-undang.</p>
                 <div class="flex gap-4">
-                    <a href="#legalitas" class="hover:text-gold-300">Kebijakan Privasi</a>
+                    <button type="button" @click="showPrivacyModal = true" class="hover:text-gold-300 transition-colors cursor-pointer underline-offset-2 hover:underline">Kebijakan Privasi</button>
                     <span>•</span>
-                    <a href="#legalitas" class="hover:text-gold-300">Syarat & Ketentuan</a>
+                    <button type="button" @click="showTermsModal = true" class="hover:text-gold-300 transition-colors cursor-pointer underline-offset-2 hover:underline">Syarat & Ketentuan</button>
                     <span>•</span>
                     <a href="{{ $waUrlHero }}" class="hover:text-gold-300">Hubungi Kami</a>
                 </div>
@@ -1129,6 +1130,130 @@
                 </svg>
             </div>
         </a>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL: KEBIJAKAN PRIVASI (PRIVACY POLICY COMPLIANT FOR ADS & UU PDP)       -->
+    <!-- ========================================================================= -->
+    <div x-show="showPrivacyModal" x-cloak
+         class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl max-h-[85vh] flex flex-col relative text-slate-700"
+             @click.away="showPrivacyModal = false">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+                <div>
+                    <h3 class="font-serif font-black text-xl text-emerald-950">Kebijakan Privasi</h3>
+                    <p class="text-xs text-slate-500">{{ $companyName }} (Perlindungan Data Pribadi)</p>
+                </div>
+                <button type="button" @click="showPrivacyModal = false" class="p-2 text-slate-400 hover:text-emerald-900 rounded-lg hover:bg-slate-100 transition-colors">
+                    ✕
+                </button>
+            </div>
+            <div class="overflow-y-auto text-xs sm:text-sm space-y-4 pr-2 text-slate-600 leading-relaxed">
+                <p>
+                    PT Amanah Haramain International berkomitmen penuh melindungi hak privasi dan kerahasiaan data pribadi calon jamaah dan pengunjung website kami, sesuai dengan Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP) serta standar periklanan digital global (Google Ads & Meta Ads).
+                </p>
+                <div class="space-y-3">
+                    <h4 class="font-bold text-emerald-950 text-sm">1. Data yang Kami Kumpulkan</h4>
+                    <p>
+                        Informasi yang Anda berikan secara sukarela melalui formulir konsultasi cepat atau sambungan WhatsApp kami meliputi:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Nama Lengkap (untuk identifikasi konsultasi)</li>
+                        <li>Nomor Telepon / WhatsApp aktif (untuk verifikasi dan komunikasi panduan ibadah)</li>
+                        <li>Kota Domisili (untuk pemetaan layanan bandara/keberangkatan)</li>
+                        <li>Pilihan Rencana Ibadah (Umroh Reguler, Ramadhan, atau Haji Khusus)</li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-bold text-emerald-950 text-sm">2. Tujuan Penggunaan Data</h4>
+                    <p>
+                        Data pribadi Anda <strong>hanya digunakan secara eksklusif</strong> untuk:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Memberikan edukasi, simulasi, dan layanan proteksi dana ibadah haji & umroh.</li>
+                        <li>Menghubungi Anda terkait konfirmasi jadwal konsultasi atau pembaruan status perlindungan dana.</li>
+                        <li>Memastikan kepatuhan administrasi syariah dengan mitra perbankan.</li>
+                        <li><strong>Kami menjamin 100% tidak pernah menjual, menyewakan, atau menyebarluaskan data Anda kepada pihak ketiga manapun untuk tujuan pemasaran komersial tanpa izin Anda.</strong></li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-bold text-emerald-950 text-sm">3. Keamanan Data Finansial</h4>
+                    <p>
+                        Dana ibadah calon jamaah disimpan langsung di Rekening Pribadi Jamaah dengan sistem perlindungan perbankan syariah resmi, sehingga seluruh akses finansial berada di bawah pengawasan otoritas dan perbankan yang berwenang.
+                    </p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="font-bold text-emerald-950 text-sm">4. Hak Pengguna & Penghapusan Data</h4>
+                    <p>
+                        Anda berhak setiap saat untuk meminta informasi, memperbarui, atau meminta penghapusan permanen atas riwayat data kontak Anda dari database kami dengan menghubungi layanan pelanggan kami melalui WhatsApp resmi di +{{ $waNumber }}.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+                <button type="button" @click="showPrivacyModal = false" class="px-5 py-2 rounded-xl bg-emerald-900 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-800 transition-colors">
+                    Saya Mengerti
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL: SYARAT & KETENTUAN (TERMS OF SERVICE)                              -->
+    <!-- ========================================================================= -->
+    <div x-show="showTermsModal" x-cloak
+         class="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl max-h-[85vh] flex flex-col relative text-slate-700"
+             @click.away="showTermsModal = false">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+                <div>
+                    <h3 class="font-serif font-black text-xl text-emerald-950">Syarat & Ketentuan Layanan</h3>
+                    <p class="text-xs text-slate-500">{{ $companyName }}</p>
+                </div>
+                <button type="button" @click="showTermsModal = false" class="p-2 text-slate-400 hover:text-emerald-900 rounded-lg hover:bg-slate-100 transition-colors">
+                    ✕
+                </button>
+            </div>
+            <div class="overflow-y-auto text-xs sm:text-sm space-y-4 pr-2 text-slate-600 leading-relaxed">
+                <p>
+                    Dengan mengakses website ini dan menggunakan layanan konsultasi PT Amanah Haramain International, Anda menyetujui ketentuan berikut:
+                </p>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-emerald-950 text-sm">1. Posisi Layanan</h4>
+                    <p>
+                        PT Amanah Haramain International bertindak sebagai fasilitator perlindungan finansial dana jamaah haji dan umroh berbasis perbankan syariah. Kami bekerja sama dengan Penyelenggara Perjalanan Ibadah Umroh (PPIU) resmi yang berizin Kementerian Agama RI.
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-emerald-950 text-sm">2. Mekanisme Rekening Terproteksi</h4>
+                    <p>
+                        Dana ibadah disetorkan langsung ke Rekening Pribadi Jamaah yang diproteksi oleh sistem perbankan syariah. Penyaluran dana operasional hanya dapat dieksekusi secara bertahap setelah syarat validitas tiket pesawat dan visa jamaah terpenuhi secara sah.
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-emerald-950 text-sm">3. Konsultasi Gratis Tanpa Paksaan</h4>
+                    <p>
+                        Layanan konsultasi melalui website dan WhatsApp resmi kami bersifat informatif, edukatif, dan tidak memungut biaya awal pendaftaran apapun sebelum akad resmi ditandatangani.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+                <button type="button" @click="showTermsModal = false" class="px-5 py-2 rounded-xl bg-emerald-900 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-800 transition-colors">
+                    Tutup
+                </button>
+            </div>
+        </div>
     </div>
 
 </body>

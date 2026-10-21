@@ -1,0 +1,61 @@
+================================================================================
+PANDUAN LENGKAP PENGATURAN DOMAIN (DOMAINESIA -> VERCEL)
+PT AMANAH HARAMAIN INTERNATIONAL (amanahprotection.com)
+================================================================================
+
+Domain yang dibeli: amanahprotection.com
+Target Hosting    : Vercel (Cloud Hosting Otomatis & Cepat)
+
+
+--------------------------------------------------------------------------------
+LANGKAH 1: BUKA DNS MANAGEMENT DI DOMAINESIA
+--------------------------------------------------------------------------------
+1. Login ke akun DomaiNesia Anda: https://client.domainesia.com
+2. Masuk ke menu "Domain" di sebelah kiri.
+3. Klik nama domain Anda: amanahprotection.com
+4. Di panel pengelolaan domain, klik tombol "DNS Management" (atau klik tombol "More..." lalu pilih "DNS Management").
+
+
+--------------------------------------------------------------------------------
+LANGKAH 2: MASUKKAN 2 RECORD DNS BERIKUT
+--------------------------------------------------------------------------------
+
+[RECORD 1 - DOMAIN UTAMA]
+Host Name / Subdomain : @   (kosongkan jika sistem menolak tanda @)
+Type / Tipe           : A
+Address / Nilai Target: 76.76.21.21
+TTL                   : 3600 (atau default)
+-> Klik SIMPAN / TAMBAH RECORD
+
+[RECORD 2 - SUBDOMAIN WWW]
+Host Name / Subdomain : www
+Type / Tipe           : CNAME
+Address / Nilai Target: cname.vercel-dns.com
+TTL                   : 3600 (atau default)
+-> Klik SIMPAN / TAMBAH RECORD
+
+
+--------------------------------------------------------------------------------
+LANGKAH 3: SAMBUNGKAN DI VERCEL
+--------------------------------------------------------------------------------
+1. Buka dashboard Vercel: https://vercel.com
+2. Pilih project landing page Anda.
+3. Klik menu "Settings" (di bagian atas) -> pilih "Domains" (di sebelah kiri).
+4. Masukkan nama domain: amanahprotection.com
+5. Klik tombol "Add" (Pilih opsi yang direkomendasikan jika muncul pilihan www).
+6. Klik tombol "Refresh" di Vercel. Dalam 5 - 15 menit status akan menjadi centang hijau (Valid Configuration).
+7. Website otomatis berstatus HTTPS (gembok hijau aman)!
+
+
+--------------------------------------------------------------------------------
+OPSI ALTERNATIF (UPLOAD LANGSUNG KE CPANEL DOMAINESIA JIKA PUNYA HOSTING)
+--------------------------------------------------------------------------------
+Jika Anda memiliki paket cPanel Hosting di DomaiNesia dan ingin hosting langsung di sana:
+1. Buka cPanel DomaiNesia -> Masuk ke "File Manager" -> Buka folder "public_html".
+2. Upload file "Amanah-LandingPage-HTML-SiapUpload.zip" ke dalam public_html.
+3. Klik kanan pada file zip tersebut lalu pilih "Extract".
+4. Website langsung aktif di https://amanahprotection.com tanpa perlu setting Vercel!
+
+================================================================================
+Dibuat otomatis untuk PT Amanah Haramain International
+================================================================================
