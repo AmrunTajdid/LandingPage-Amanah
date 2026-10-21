@@ -35,10 +35,10 @@
     <meta name="keywords" content="perlindungan umroh, proteksi dana haji, tabungan umroh aman, travel umroh terpercaya, rekening penampung syariah, amanah haramain">
 
     <!-- Favicon & Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="images/logo-icon.png?v=3">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/logo-icon.png?v=3">
-    <link rel="shortcut icon" href="favicon.ico?v=3">
-    <link rel="apple-touch-icon" href="images/logo-icon.png?v=3">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=5">
+    <link rel="shortcut icon" href="favicon.ico?v=5">
+    <link rel="apple-touch-icon" href="images/logo-icon.png?v=5">
 
     <!-- Open Graph / Meta Ads & Google Ads Support -->
     <meta property="og:type" content="website">
