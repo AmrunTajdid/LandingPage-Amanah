@@ -35,10 +35,10 @@
     <meta name="keywords" content="perlindungan umroh, proteksi dana haji, tabungan umroh aman, travel umroh terpercaya, rekening penampung syariah, amanah haramain">
 
     <!-- Favicon & Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="images/logo-icon.png?v=2">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/logo-icon.png?v=2">
-    <link rel="shortcut icon" href="favicon.ico?v=2">
-    <link rel="apple-touch-icon" href="images/logo-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo-icon.png?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo-icon.png?v=3">
+    <link rel="shortcut icon" href="favicon.ico?v=3">
+    <link rel="apple-touch-icon" href="images/logo-icon.png?v=3">
 
     <!-- Open Graph / Meta Ads & Google Ads Support -->
     <meta property="og:type" content="website">
@@ -176,7 +176,7 @@
 
                 <!-- Logo & Brand Identifier -->
                 <a href="#hero" class="flex items-center gap-3.5 group py-1">
-                    <img src="images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-12 w-auto object-contain group-hover:scale-105 transition-transform">
+                    <img src="images/logo-icon.png?v=3" alt="Logo PT Amanah Haramain International" class="h-12 w-auto object-contain group-hover:scale-105 transition-transform">
                     <div class="flex flex-col justify-center">
                         <span class="text-2xl sm:text-[28px] font-brand font-black tracking-wide text-[#1C6758] leading-none">
                             AMANAH
@@ -1042,7 +1042,7 @@
                 <!-- Brand Info (Col 5) -->
                 <div class="lg:col-span-5 space-y-4">
                     <div class="flex items-center gap-3.5">
-                        <img src="images/logo-icon.png" alt="Logo PT Amanah Haramain International" class="h-11 w-auto object-contain">
+                        <img src="images/logo-icon.png?v=3" alt="Logo PT Amanah Haramain International" class="h-11 w-auto object-contain">
                         <div class="flex flex-col justify-center">
                             <span class="text-2xl font-brand font-black tracking-wide text-white block leading-none">
                                 AMANAH
