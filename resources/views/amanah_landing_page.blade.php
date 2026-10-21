@@ -450,7 +450,7 @@
                             </div>
                             <div class="flex flex-col">
                                 <span class="text-[10px] text-slate-500 uppercase font-semibold">Terproteksi</span>
-                                <span class="text-xs font-bold text-emerald-950 leading-tight">rekening pribadi jamaah</span>
+                                <span class="text-xs font-bold text-emerald-950 leading-tight">Rekening Pribadi Jamaah</span>
                             </div>
                         </div>
 
